@@ -15,7 +15,7 @@ public class Run {
     public static final String STOP = "stop";
     public static final String DOESNT_WORK = "Thread doesn't work";
     public static final String STOP_COMMAND = "Process is start, for stopping process please enter 'stop'";
-    public static final String ACTIVE_THREAD = "Thread is active now, for stop Theard enter stop";
+    public static final String ACTIVE_THREAD = "Thread is active now, for stop Thread enter stop";
     public static final String INCORRECT = "incorrect command";
 
     public static void main(String[] args) throws InterruptedException {
@@ -30,8 +30,8 @@ public class Run {
             Matcher nameMatcher = pattern.matcher(command);
             if (command.equalsIgnoreCase(STOP)) {
                 if (myThread != null && myRunner.isActive()) {
-                    myThread.stop();
                     myRunner.showInfo();
+                    myThread.interrupt();
                     myRunner.setActive(false);
                 } else {
                     System.out.println(DOESNT_WORK);

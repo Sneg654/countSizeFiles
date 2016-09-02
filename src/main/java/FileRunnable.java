@@ -34,7 +34,7 @@ public class FileRunnable implements Runnable {
     void addTree(File file, List<File> all) {
         try {
 
-            // for test 
+            // for test
             //Thread.sleep(500);
             File[] children = file.listFiles();
             if (children != null) {
@@ -72,15 +72,16 @@ public class FileRunnable implements Runnable {
 
 
     public void showInfo() {
-        System.out.println(COUNT_FOLDERS + folderCount);
-        System.out.println(COUNT_FILES + fileCount);
-        System.out.println(COMMON_SIZE  + countSize);
-        System.out.println(START_MESSAGE);
-        fileCount = 0;
-        folderCount = 0;
-        countSize = 0;
+        if (!Thread.interrupted()) {
+            System.out.println(COUNT_FOLDERS + folderCount);
+            System.out.println(COUNT_FILES + fileCount);
+            System.out.println(COMMON_SIZE + countSize);
+            System.out.println(START_MESSAGE);
+            fileCount = 0;
+            folderCount = 0;
+            countSize = 0;
+        }
     }
 
-    ;
 }
 
