@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -36,22 +37,29 @@ public class FileRunnable implements Runnable {
 
             // for test
             //Thread.sleep(500);
+
             File[] children = file.listFiles();
             if (children != null) {
                 folderCount++;
-                for (File child : children) {
+                Arrays.asList(children).forEach(value -> {
+                    countSize = countSize + value.length();
+                    all.add(value);
+                    addTree(value, all);
+                });
 
-                    countSize = countSize + child.length();
-
-                    all.add(child);
-                    addTree(child, all);
-                }
             } else {
                 fileCount++;
             }
-        } catch (Exception e) {
+
+
+        } catch (
+                Exception e
+                )
+
+        {
             e.printStackTrace();
         }
+
     }
 
     public List<File> getAll() {

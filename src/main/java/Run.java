@@ -48,6 +48,7 @@ public class Run {
                 }
             } else {
                 System.out.println(INCORRECT);
+                System.out.println(FileRunnable.START_MESSAGE);
             }
 
 
