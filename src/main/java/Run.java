@@ -11,12 +11,12 @@ import java.util.regex.Pattern;
  */
 public class Run {
     private static FileRunnable myRunner;
-    public static final String REGEX_FORMAT = "(([C,D,E,F,G,H,c,d,e,f,h,g][:][\\\\])([\\w,\\W]{0,}))";
-    public static final String STOP = "stop";
-    public static final String DOESNT_WORK = "Thread doesn't work";
-    public static final String STOP_COMMAND = "Process is start, for stopping process please enter 'stop'";
-    public static final String ACTIVE_THREAD = "Thread is active now, for stop Thread enter stop";
-    public static final String INCORRECT = "incorrect command";
+    private static final String REGEX_FORMAT = "(([C,D,E,F,G,H,c,d,e,f,h,g][:][\\\\])([\\w,\\W]{0,}))";
+    private static final String STOP = "stop";
+    private static final String DOESNT_WORK = "Thread doesn't work";
+    private static final String STOP_COMMAND = "Process is start, for stopping process please enter 'stop'";
+    private static final String ACTIVE_THREAD = "Thread is active now, for stop Thread enter stop";
+    private static final String INCORRECT = "incorrect command";
 
     public static void main(String[] args) throws InterruptedException {
         Pattern pattern = Pattern.compile(REGEX_FORMAT);

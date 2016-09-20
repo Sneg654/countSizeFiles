@@ -7,15 +7,15 @@ import java.util.List;
  * Created by Sergey_Stefoglo on 8/30/2016.
  */
 public class FileRunnable implements Runnable {
+    public static final String START_MESSAGE = "Please show path to folder";
+    private static final String COUNT_FOLDERS = "count of folders: ";
+    private static final String COUNT_FILES = "count of files: ";
+    private static final String COMMON_SIZE = "common files size: ";
     private File file;
     private long folderCount;
     private long fileCount;
     private long countSize;
     private boolean active;
-    public static final String START_MESSAGE = "Please show path to folder";
-    private static final String COUNT_FOLDERS = "count of folders: ";
-    private static final String COUNT_FILES = "count of files: ";
-    private static final String COMMON_SIZE = "common files size: ";
     private List<File> all = new ArrayList();
 
     public FileRunnable(String path) {
@@ -37,12 +37,11 @@ public class FileRunnable implements Runnable {
 
             // for test
             //Thread.sleep(500);
-
             File[] children = file.listFiles();
             if (children != null) {
                 folderCount++;
                 Arrays.asList(children).forEach(value -> {
-                    countSize = countSize + value.length();
+                    countSize += value.length();
                     all.add(value);
                     addTree(value, all);
                 });
@@ -50,35 +49,22 @@ public class FileRunnable implements Runnable {
             } else {
                 fileCount++;
             }
-
-
-        } catch (
-                Exception e
-                )
-
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
     public List<File> getAll() {
         return all;
     }
-
     public void setAll(List<File> all) {
         this.all = all;
     }
-
     public boolean isActive() {
         return active;
     }
-
     public void setActive(boolean active) {
         this.active = active;
     }
-
-
     public void showInfo() {
         if (!Thread.interrupted()) {
             System.out.println(COUNT_FOLDERS + folderCount);
