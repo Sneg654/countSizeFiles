@@ -16,7 +16,7 @@ public class FileRunnable implements Runnable {
     private static final String COUNT_FOLDERS = "count of folders: ";
     private static final String COUNT_FILES = "count of files: ";
     private static final String COMMON_SIZE = "common files size: ";
-    private List<File> all = new ArrayList<File>();
+    private List<File> all = new ArrayList();
 
     public FileRunnable(String path) {
         file = new File(path);
