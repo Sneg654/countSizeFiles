@@ -12,10 +12,10 @@ public class FileRunnable implements Runnable {
     private long countSize;
     private boolean active;
     public static final String START_MESSAGE = "Please show path to folder";
-    public static final String COUNT_FOLDERS = "count of folders: ";
-    public static final String COUNT_FILES = "count of files: ";
-    public static final String COMMON_SIZE = "common files size: ";
-    List<File> all = new ArrayList<File>();
+    private static final String COUNT_FOLDERS = "count of folders: ";
+    private static final String COUNT_FILES = "count of files: ";
+    private static final String COMMON_SIZE = "common files size: ";
+    private List<File> all = new ArrayList<File>();
 
     public FileRunnable(String path) {
         file = new File(path);
@@ -31,7 +31,7 @@ public class FileRunnable implements Runnable {
 
     }
 
-    void addTree(File file, List<File> all) {
+    private void addTree(File file, List<File> all) {
         try {
 
             // for test
